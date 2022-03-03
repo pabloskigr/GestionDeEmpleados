@@ -17,11 +17,11 @@ class LoginVC: UIViewController {
         
     }
     
-    if let recoverPassVC = storyboard?.instantiateViewController(identifier: "RecoverPassVC") as? RecoverPassVC {
-    recoverPassVC.modalPresentationStyle = .fullScreen
-    recoverPassVC.modalTransitionStyle = .crossDissolve
-    self.present(recoverPassVC, animated: true, completion: nil)
-    }
+//    if let recoverPassVC = storyboard?.instantiateViewController(identifier: "RecoverPassVC") as? RecoverPassVC {
+//    recoverPassVC.modalPresentationStyle = .fullScreen
+//    recoverPassVC.modalTransitionStyle = .crossDissolve
+//    self.present(recoverPassVC, animated: true, completion: nil)
+//    }
         
         @IBAction func enterButton(_ sender: Any) {
                 params = [
