@@ -7,23 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E96C998C27D11CB9006B4A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C998B27D11CB9006B4A0E /* AppDelegate.swift */; };
 		E96C998E27D11CB9006B4A0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C998D27D11CB9006B4A0E /* SceneDelegate.swift */; };
 		E96C999027D11CB9006B4A0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C998F27D11CB9006B4A0E /* ViewController.swift */; };
 		E96C999327D11CB9006B4A0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96C999127D11CB9006B4A0E /* Main.storyboard */; };
 		E96C999527D11CBD006B4A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96C999427D11CBD006B4A0E /* Assets.xcassets */; };
 		E96C999827D11CBD006B4A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96C999627D11CBD006B4A0E /* LaunchScreen.storyboard */; };
+		E96C99A527D11E4E006B4A0E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99A427D11E4E006B4A0E /* LoginVC.swift */; };
+		E96C99A727D11E9E006B4A0E /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99A627D11E9E006B4A0E /* RegisterVC.swift */; };
+		E96C99AB27D11EFA006B4A0E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99AA27D11EFA006B4A0E /* HomeVC.swift */; };
+		E96C99B127D11F73006B4A0E /* RecoverPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99B027D11F73006B4A0E /* RecoverPasswordVC.swift */; };
+		E96C99B327D13BEB006B4A0E /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99B227D13BEB006B4A0E /* EmployeeCell.swift */; };
+		E96C99B527D13C05006B4A0E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99B427D13C05006B4A0E /* Response.swift */; };
+		E96C99B727D13C6E006B4A0E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99B627D13C6E006B4A0E /* Employee.swift */; };
+		E96C99B927D13C96006B4A0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99B827D13C96006B4A0E /* NetworkManager.swift */; };
+		E96C99BD27D141FF006B4A0E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99BC27D141FF006B4A0E /* DetailVC.swift */; };
+		E96C99BF27D14907006B4A0E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C99BE27D14907006B4A0E /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E96C998827D11CB9006B4A0E /* GestionDeEmpleados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestionDeEmpleados.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E96C998B27D11CB9006B4A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96C998D27D11CB9006B4A0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E96C998F27D11CB9006B4A0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E96C999227D11CB9006B4A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E96C999427D11CBD006B4A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96C999727D11CBD006B4A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96C999927D11CBD006B4A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E96C99A427D11E4E006B4A0E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E96C99A627D11E9E006B4A0E /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		E96C99AA27D11EFA006B4A0E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E96C99B027D11F73006B4A0E /* RecoverPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordVC.swift; sourceTree = "<group>"; };
+		E96C99B227D13BEB006B4A0E /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		E96C99B427D13C05006B4A0E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		E96C99B627D13C6E006B4A0E /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		E96C99B827D13C96006B4A0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E96C99BC27D141FF006B4A0E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		E96C99BE27D14907006B4A0E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +74,10 @@
 		E96C998A27D11CB9006B4A0E /* GestionDeEmpleados */ = {
 			isa = PBXGroup;
 			children = (
-				E96C998B27D11CB9006B4A0E /* AppDelegate.swift */,
+				E96C999F27D11D32006B4A0E /* Cell */,
+				E96C99A327D11D7A006B4A0E /* Model */,
+				E96C99A227D11D65006B4A0E /* Network */,
+				E96C99A127D11D50006B4A0E /* ViewController */,
 				E96C998D27D11CB9006B4A0E /* SceneDelegate.swift */,
 				E96C998F27D11CB9006B4A0E /* ViewController.swift */,
 				E96C999127D11CB9006B4A0E /* Main.storyboard */,
@@ -65,6 +86,44 @@
 				E96C999927D11CBD006B4A0E /* Info.plist */,
 			);
 			path = GestionDeEmpleados;
+			sourceTree = "<group>";
+		};
+		E96C999F27D11D32006B4A0E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E96C99B227D13BEB006B4A0E /* EmployeeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E96C99A127D11D50006B4A0E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E96C99A427D11E4E006B4A0E /* LoginVC.swift */,
+				E96C99A627D11E9E006B4A0E /* RegisterVC.swift */,
+				E96C99AA27D11EFA006B4A0E /* HomeVC.swift */,
+				E96C99B027D11F73006B4A0E /* RecoverPasswordVC.swift */,
+				E96C99BC27D141FF006B4A0E /* DetailVC.swift */,
+				E96C99BE27D14907006B4A0E /* ProfileVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E96C99A227D11D65006B4A0E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E96C99B827D13C96006B4A0E /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E96C99A327D11D7A006B4A0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E96C99B427D13C05006B4A0E /* Response.swift */,
+				E96C99B627D13C6E006B4A0E /* Employee.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E96C99BF27D14907006B4A0E /* ProfileVC.swift in Sources */,
+				E96C99B127D11F73006B4A0E /* RecoverPasswordVC.swift in Sources */,
 				E96C999027D11CB9006B4A0E /* ViewController.swift in Sources */,
-				E96C998C27D11CB9006B4A0E /* AppDelegate.swift in Sources */,
+				E96C99AB27D11EFA006B4A0E /* HomeVC.swift in Sources */,
+				E96C99B727D13C6E006B4A0E /* Employee.swift in Sources */,
+				E96C99B927D13C96006B4A0E /* NetworkManager.swift in Sources */,
+				E96C99BD27D141FF006B4A0E /* DetailVC.swift in Sources */,
+				E96C99B527D13C05006B4A0E /* Response.swift in Sources */,
+				E96C99A527D11E4E006B4A0E /* LoginVC.swift in Sources */,
+				E96C99B327D13BEB006B4A0E /* EmployeeCell.swift in Sources */,
 				E96C998E27D11CB9006B4A0E /* SceneDelegate.swift in Sources */,
+				E96C99A727D11E9E006B4A0E /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
