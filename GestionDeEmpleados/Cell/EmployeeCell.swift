@@ -11,18 +11,17 @@ class EmployeeCell: UITableViewCell {
 
     static let identifier = "EmployeeCellIdentifier"
     @IBOutlet weak var nameLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    var employeeName: Employee? {
-        didSet { renderUI() }
-    }
+    @IBOutlet weak var jobLabel: UILabel!
+    @IBOutlet weak var salaryLabel: UILabel!
     
-    private func renderUI() {
-        guard let employeeName = employeeName else {
-            return
-        }
-        nameLabel.text = employeeName.name.capitalized
-    }
+    override func awakeFromNib() {
+          super.awakeFromNib()
+      }
+
+
+      override func setSelected(_ selected: Bool, animated: Bool) {
+          super.setSelected(selected, animated: animated)
+
+          // Configure the view for the selected state
+      }
 }

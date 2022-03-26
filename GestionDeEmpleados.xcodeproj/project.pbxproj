@@ -103,8 +103,8 @@
 				E96C99A627D11E9E006B4A0E /* RegisterVC.swift */,
 				E96C99AA27D11EFA006B4A0E /* HomeVC.swift */,
 				E96C99B027D11F73006B4A0E /* RecoverPasswordVC.swift */,
-				E96C99BC27D141FF006B4A0E /* DetailVC.swift */,
 				E96C99BE27D14907006B4A0E /* ProfileVC.swift */,
+				E96C99BC27D141FF006B4A0E /* DetailVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
