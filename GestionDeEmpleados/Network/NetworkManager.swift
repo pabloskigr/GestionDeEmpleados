@@ -6,303 +6,176 @@
 //
 
 import Foundation
-import UIKit
-
-enum NetworkError : Error {
-    case invalidToken, badData, errorURL, errorConnection
-}
 
 final class NetworkManager {
     
     static let shared = NetworkManager()
     private init() {}
     
-    private var imageCache = NSCache<NSString, UIImage>()
-
-    var loginUserURL = "login"
-    var registerUserURL = "registro?api_token="
-    var recoverPassURL = "recoverPass"
-    var getEmployeeListURL = "listado_empleados?api_token="
-    var getEmployeeProfileURL = "ver_perfil?api_token="
-    var editUserDataURL =  "modificar_datos/"
-    var editProfileImageURL = "uploadImage?api_token="
-    var editEmployeeImageURL = "uploadEmployeeImage/"
+    static var baseUrl = "https://gestorDeEmpleados.com/"
     
-    func registerUser(apiToken: String, params: [String: Any]?, completion: @escaping (Response?, NetworkError?) -> Void) {
+    // Endpoints
+    var employeeList = NetworkManager.baseUrl + "employee/"
+    var employeeDetail = NetworkManager.baseUrl + "detail/"
+    
+    func login(name: String, password: String, completion: @escaping (Result<Int, Error>) -> Void){
         
-        Connection().connect(httpMethod: "PUT", to: registerUserURL, params: params) {
-            data, error in
-            
-            guard let data = data else {
-                print("error al convertir a data")
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                completion(response, nil)
-
-            } catch {
-                print("error al decodificar")
-                completion(nil, .badData)
-            }
-        }
-    }
-    
-    func recoverPassword(params: [String: Any]?, completion: @escaping (Response?, NetworkError?) -> Void){
+        let parameters = ["name":name, "password":password]
+        let baseURl = "https://gestorDeEmpleados.com/"
         
-        Connection().connect(httpMethod: "PUT", to: recoverPassURL, params: params) {
-            data, error in
-            
-            guard let data = data else {
-                print("error al convertir a data")
-                completion(nil, .badData)
-                return
-            }
-            guard error == nil else {
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                completion(response, nil)
-
-            } catch {
-                print("error al decodificar")
-                completion(nil, .badData)
-            }
-        }
-    }
-    
-    func login(params: [String: Any]?, completion: @escaping (Response?, NetworkError?) -> Void){
-        
-        Connection().connect(httpMethod: "POST", to: loginUserURL, params: params) {
-            data, error in
-            
-            guard let data = data else {
-                print("error al convertir a data")
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                completion(nil, .badData)
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                completion(response, nil)
-
-            } catch {
-                print("error al decodificar")
-                completion(nil, .badData)
-            }
-        }
-    }
-    
-    func getEmployeeList(apiToken: String ,completion: @escaping (Response?, NetworkError?) -> Void){
-        
-        Connection().connectGetData(to: getEmployeeListURL){
-            data, error in
-            
-            guard let data = data else {
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                    completion(response, nil)
-                }
-            } catch {
-                completion(nil, .badData)
-                print("error al decodificar")
-            }
-            
-        }
-
-    }
-    
-    func getEmployeeProfile(apiToken: String ,completion: @escaping (Response?, NetworkError?) -> Void){
-        
-        Connection().connectGetData(to: getEmployeeProfileURL){
-            data, error in
-            
-            guard let data = data else {
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                    completion(response, nil)
-                }
-            } catch {
-                completion(nil, .badData)
-                print("error al decodificar")
-            }
-            
-        }
-     
-    }
-    
-    func editUserData(id : String ,apiToken: String, params: [String: Any]?, completion: @escaping (Response?, NetworkError?) -> Void) {
-        
-        Connection().connect(httpMethod: "POST", to: editUserDataURL + id + "?api_token=" + apiToken, params: params) {
-            data, error in
-            
-            guard let data = data else {
-                print("error al convertir a data")
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                print("error al obtener los datos")
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                    completion(response, nil)
-                }
-
-            } catch {
-                print("error al decodificar")
-                completion(nil, .badData)
-            }
-        }
-    }
-    
-    func uploadProfileImage(apiToken: String, params: [String: Any]?, completion: @escaping (Response?, NetworkError?) -> Void) {
-        
-        Connection().connect(httpMethod: "POST", to: editProfileImageURL + apiToken, params: params) {
-            data, error in
-            
-            guard let data = data else {
-                print("error al convertir a data")
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                print("error al obtener los datos")
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                completion(response, nil)
-
-            } catch {
-                print("error al decodificar")
-                completion(nil, .badData)
-            }
-        }
-  
-    }
-    
-    func uploadEmployeeImage(id : String, apiToken: String, params: [String: Any]?, completion: @escaping (Response?, NetworkError?) -> Void) {
-        
-        Connection().connect(httpMethod: "POST", to: editEmployeeImageURL + id + "?api_token=" + apiToken, params: params) {
-            data, error in
-            
-            guard let data = data else {
-                print("error al convertir a data")
-                completion(nil, .badData)
-                return
-            }
-            
-            guard error == nil else {
-                print("error al obtener los datos")
-                completion(nil, .badData)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
-                completion(response, nil)
-
-            } catch {
-                print("error al decodificar")
-                completion(nil, .badData)
-            }
-        }
-  
-    }
-    
-    func getImageFrom(imageUrl: String, completion: @escaping (UIImage?) -> Void) {
-
-        let cacheKey = NSString(string: imageUrl)
-        if let image = imageCache.object(forKey: cacheKey) {
-            completion(image)
+        guard let url = URL(string: baseURl + name) else {
+            completion(.failure(logInError.badURL))
             return
         }
+        
+        var request = URLRequest(url: url)
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
+            return
+        }
+        
+        request.httpBody = httpBody
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request){(data, response, error) in
+            DispatchQueue.main.async {
+                
+                guard let unWrappedResponse = response as? HTTPURLResponse else{
+                    
+                    completion(.failure(logInError.badResponse))
+                    return
+                }
+                
+                print(unWrappedResponse.statusCode)
+                
+                switch unWrappedResponse.statusCode{
+                    
+                case 200 ..< 300:
+                    
+                    print("success")
+                    
+                default:
+                    
+                    print("failure")
+                    
+                }
+                if let unwrappedError = error{
+                    
+                    completion(.failure(unwrappedError))
 
-        guard let url = URL(string: imageUrl) else {
+                }
+                if let unwrappedData = data{
+                    
+                    print(unwrappedData)
+                    
+                    do {
+                        completion(.success(unWrappedResponse.statusCode))
+                    }catch {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func register(name : String, password : String, completion: @escaping (Result<Int, Error>) -> Void){
+    
+        let parameters = ["name":name, "password":password] as [String : Any]
+        
+        guard let url = URL(string: "https://gestorDeEmpleados.com/public/api/register") else {
+            
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+    
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
+            
+            return
+        }
+        
+        request.httpBody = httpBody
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            
+            if let response = response{
+                
+                print(response)
+            }
+            
+            if let data = data {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    
+                    print(json)
+                }catch{
+                    print(error)
+                }
+            }
+        }.resume()
+    }
+    func getEmployeeList(params: [String: Any]?, completion: @escaping (Response?) -> Void) {
+        guard let url = URL(string: employeeList) else {
             completion(nil)
             return
         }
-
-        let urlRequest = URLRequest(url: url)
-        let networkTask = URLSession.shared.dataTask(with: urlRequest) {
-
+        var urlRequest = URLRequest(url: url, timeoutInterval: 10)
+        
+        if let params = params {
+            guard let paramsData = try? JSONSerialization.data(withJSONObject: params, options: []) else {
+                completion(nil)
+                return
+            }
+            
+            urlRequest.httpMethod = "POST"
+            urlRequest.httpBody = paramsData
+        }
+        
+        let headers = [
+            "Content-Type": "application/json",
+            "Accept":       "application/json"
+        ]
+        
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.httpAdditionalHeaders = headers
+        
+        let urlSession = URLSession(configuration: sessionConfiguration)
+        
+        let networkTask = urlSession.dataTask(with: urlRequest) {
             data, response, error in
+            
+            let httpResponse = response as! HTTPURLResponse
+            
+            print("HTTP Status code: \(httpResponse.statusCode)")
+            
             guard error == nil else {
                 completion(nil)
                 return
             }
-
+            
             guard let data = data else {
                 completion(nil)
                 return
             }
-
-            guard let image = UIImage(data: data) else {
+            
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(Response.self, from: data)
+                completion(response)
+            } catch {
                 completion(nil)
-                return
             }
-
-            self.imageCache.setObject(image, forKey: cacheKey)
-            completion(image)
         }
+        
         networkTask.resume()
-
+        
     }
-    
-    
-    
-    
-    
+    enum logInError: Error{
+        case badURL
+        case badResponse
+    }
 }

@@ -16,51 +16,46 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
         tableView.dataSource = self
-        
-        navigationItem.title = "HOME"
-        tabBarItem.title = "HOME"
-        
-        tableView.isHidden = true
-        NetworkManager.shared.getEmployeeList {
-            response in
-            
-            DispatchQueue.main.async {
-                self.response = response
-                self.tableView.isHidden = false
-                self.tableView.reloadData()
-            }
+        tableView.delegate = self
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Esto es para llamar a la api
+        //return response?.request.count ?? 0
+        return MockData.shared.employee.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellIdentifier", for: indexPath) as? EmployeeCell {
+            //Esto es para llamar a la api
+            //cell.empleado = response?.request[indexPath.row]
+            cell.employee = MockData.shared.employee[indexPath.row]
+            return cell
         }
+        else {
+            return UITableViewCell()
+        }
+    }
+   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Se pulso \(MockData.shared.employee[indexPath.row].name)")
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: "DetalleEmpleado", sender: MockData.shared.employee[indexPath.row])
+        //performSegue(withIdentifier: "DetalleEmpleado", sender: response?.request[indexPath.row])
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EmployeeToDetailSegue" {
+        if segue.identifier == "DetalleEmpleado" {
             let employee = sender as! Employee
             let detailVC = segue.destination as! DetailVC
+            
             detailVC.employee = employee
-            detailVC.delegate = self as! DetailViewControllerDelegate
         }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return response?.results.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeCell.identifier, for: indexPath) as! EmployeeCell
-        cell.employeeName = response?.results[indexPath.row]
-        return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-        let detailVC = storyboard.instantiateViewController(identifier: "BeerDetailVC") as? BeerDetailVC {
-           // detailVC.beer = MockData.favoritos[indexPath.row]
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
-        
-        
     }
 
 }

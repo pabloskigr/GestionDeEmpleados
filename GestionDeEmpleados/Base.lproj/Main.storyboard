@@ -11,7 +11,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginId" id="BYZ-38-t0r" customClass="LoginVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,9 +29,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="ENTER">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="enterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lts-T0-uoP"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0QP-qF-6SC">
                                 <rect key="frame" x="82" y="505" width="250" height="34"/>
@@ -92,7 +89,9 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Z9N-P5-1h1" id="MLw-ag-hgZ"/>
+                        <outlet property="enterButton" destination="1BZ-BA-G56" id="DlB-Qg-tKc"/>
                         <outlet property="passwordTextField" destination="0QP-qF-6SC" id="Hir-Ne-YJJ"/>
+                        <outlet property="recoverButton" destination="FBN-MG-Jw2" id="L2n-zH-Ksf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -312,7 +311,7 @@
         <!--RegisterVC-->
         <scene sceneID="JH9-0V-4TJ">
             <objects>
-                <viewController id="vLe-fv-h85" customClass="RegisterVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterId" id="vLe-fv-h85" customClass="RegisterVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IGi-1E-G9O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,6 +403,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="ENTER">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="registrar:" destination="vLe-fv-h85" eventType="touchUpInside" id="AXv-0U-SO7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fl0-Gc-vW4"/>
@@ -485,7 +487,7 @@
         <!--ProfileVC-->
         <scene sceneID="gkt-0L-IY0">
             <objects>
-                <viewController id="pbF-lO-d1z" customClass="ProfileVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileID" id="pbF-lO-d1z" customClass="ProfileVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z09-ML-c2K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -502,47 +504,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VLR-b3-Ber">
-                                <rect key="frame" x="87" y="228" width="240" height="164"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogx-1Q-see">
-                                <rect key="frame" x="186.5" y="423" width="41" height="17"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25g-Ww-P6g">
-                                <rect key="frame" x="186.5" y="465" width="41" height="17"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Biography, NO more than 246 words" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oai-OO-Bfb">
-                                <rect key="frame" x="87" y="547" width="240" height="95"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="xe4-gO-2cf"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3O-hI-QRY">
-                                <rect key="frame" x="172" y="507" width="70" height="17"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salary: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra6-Sr-qhX">
-                                <rect key="frame" x="162" y="684" width="56" height="21"/>
+                                <rect key="frame" x="162" y="742" width="56" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpL-3o-tud">
-                                <rect key="frame" x="218" y="684" width="41" height="21"/>
+                                <rect key="frame" x="218" y="742" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqw-6j-qA5">
+                                <rect key="frame" x="92" y="525" width="230" height="145"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="7m5-UZ-kYu"/>
+                                    <constraint firstAttribute="height" constant="145" id="SFy-vr-nkb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1zF-me-jp9">
+                                <rect key="frame" x="162" y="252.5" width="90" height="87"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="UQ2-dM-3Cq"/>
+                                    <constraint firstAttribute="height" constant="90" id="mCp-Ut-ojj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25g-Ww-P6g">
+                                <rect key="frame" x="186.5" y="458" width="41" height="17"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogx-1Q-see">
+                                <rect key="frame" x="186.5" y="391" width="41" height="17"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -550,32 +551,34 @@
                         <viewLayoutGuide key="safeArea" id="OB9-rJ-i8Z"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="T3O-hI-QRY" firstAttribute="top" secondItem="25g-Ww-P6g" secondAttribute="bottom" constant="25" id="2f6-pq-wBg"/>
+                            <constraint firstItem="25g-Ww-P6g" firstAttribute="top" secondItem="Ogx-1Q-see" secondAttribute="bottom" constant="50" id="9W7-Ui-YFL"/>
                             <constraint firstItem="t0C-Bs-hvo" firstAttribute="top" secondItem="WMD-nc-fza" secondAttribute="bottom" constant="40" id="DWM-g4-XV5"/>
                             <constraint firstItem="OB9-rJ-i8Z" firstAttribute="trailing" secondItem="hpL-3o-tud" secondAttribute="trailing" constant="155" id="Dg9-m1-20Z"/>
-                            <constraint firstItem="25g-Ww-P6g" firstAttribute="top" secondItem="Ogx-1Q-see" secondAttribute="bottom" constant="25" id="G1h-Qd-vEK"/>
                             <constraint firstItem="hpL-3o-tud" firstAttribute="leading" secondItem="ra6-Sr-qhX" secondAttribute="trailing" id="IR1-vs-3PW"/>
                             <constraint firstItem="WMD-nc-fza" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="Iu9-Dq-HYk"/>
-                            <constraint firstItem="OB9-rJ-i8Z" firstAttribute="bottom" secondItem="ra6-Sr-qhX" secondAttribute="bottom" constant="108" id="KnW-Ud-xTc"/>
-                            <constraint firstItem="VLR-b3-Ber" firstAttribute="top" secondItem="t0C-Bs-hvo" secondAttribute="bottom" constant="25.5" id="SZT-Qg-JYj"/>
-                            <constraint firstItem="oai-OO-Bfb" firstAttribute="centerX" secondItem="T3O-hI-QRY" secondAttribute="centerX" id="YjQ-bN-SKW"/>
+                            <constraint firstItem="OB9-rJ-i8Z" firstAttribute="bottom" secondItem="ra6-Sr-qhX" secondAttribute="bottom" constant="50" id="KnW-Ud-xTc"/>
+                            <constraint firstItem="xqw-6j-qA5" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="LSZ-75-9u8"/>
+                            <constraint firstItem="Ogx-1Q-see" firstAttribute="top" secondItem="1zF-me-jp9" secondAttribute="bottom" constant="50" id="NtD-JY-Dbk"/>
+                            <constraint firstItem="1zF-me-jp9" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="Pp6-9r-Pbh"/>
+                            <constraint firstItem="Ogx-1Q-see" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="Y8S-EH-Xay"/>
                             <constraint firstItem="WMD-nc-fza" firstAttribute="top" secondItem="OB9-rJ-i8Z" secondAttribute="top" constant="25" id="YzG-Sg-uX6"/>
-                            <constraint firstItem="OB9-rJ-i8Z" firstAttribute="trailing" secondItem="VLR-b3-Ber" secondAttribute="trailing" constant="87" id="ZvC-go-qoV"/>
                             <constraint firstItem="t0C-Bs-hvo" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="bCg-PR-XRX"/>
                             <constraint firstItem="25g-Ww-P6g" firstAttribute="trailing" secondItem="Ogx-1Q-see" secondAttribute="trailing" id="bTx-lQ-Q9a"/>
                             <constraint firstItem="25g-Ww-P6g" firstAttribute="leading" secondItem="Ogx-1Q-see" secondAttribute="leading" id="ewU-S3-2Rm"/>
-                            <constraint firstItem="ra6-Sr-qhX" firstAttribute="top" secondItem="oai-OO-Bfb" secondAttribute="bottom" constant="42" id="gi7-Kl-kPz"/>
-                            <constraint firstItem="oai-OO-Bfb" firstAttribute="centerX" secondItem="Ogx-1Q-see" secondAttribute="centerX" id="l20-RS-FkQ"/>
-                            <constraint firstItem="VLR-b3-Ber" firstAttribute="leading" secondItem="OB9-rJ-i8Z" secondAttribute="leading" constant="87" id="o44-Iq-SSw"/>
-                            <constraint firstAttribute="bottom" secondItem="oai-OO-Bfb" secondAttribute="bottom" constant="254" id="oBh-5e-cRW"/>
                             <constraint firstItem="ra6-Sr-qhX" firstAttribute="centerY" secondItem="hpL-3o-tud" secondAttribute="centerY" id="p7D-HX-5JG"/>
-                            <constraint firstItem="oai-OO-Bfb" firstAttribute="top" secondItem="T3O-hI-QRY" secondAttribute="bottom" constant="23" id="p88-nA-4yN"/>
-                            <constraint firstItem="oai-OO-Bfb" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="sib-DV-rfE"/>
-                            <constraint firstItem="Ogx-1Q-see" firstAttribute="top" secondItem="VLR-b3-Ber" secondAttribute="bottom" constant="29.5" id="smL-KZ-W8l"/>
-                            <constraint firstItem="oai-OO-Bfb" firstAttribute="leading" secondItem="VLR-b3-Ber" secondAttribute="leading" id="ylK-Pu-Coe"/>
+                            <constraint firstItem="1zF-me-jp9" firstAttribute="top" secondItem="t0C-Bs-hvo" secondAttribute="bottom" constant="50" id="pTE-yO-xoo"/>
+                            <constraint firstItem="ra6-Sr-qhX" firstAttribute="top" secondItem="xqw-6j-qA5" secondAttribute="bottom" constant="72" id="to4-Wd-fRy"/>
+                            <constraint firstItem="25g-Ww-P6g" firstAttribute="centerX" secondItem="OB9-rJ-i8Z" secondAttribute="centerX" id="vQf-Dl-cph"/>
+                            <constraint firstItem="xqw-6j-qA5" firstAttribute="top" secondItem="25g-Ww-P6g" secondAttribute="bottom" constant="50" id="yrO-Q4-4Zl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sky-4I-zws"/>
+                    <connections>
+                        <outlet property="biographyLabel" destination="xqw-6j-qA5" id="ldQ-g9-Mc3"/>
+                        <outlet property="jobLabel" destination="25g-Ww-P6g" id="EI6-wZ-ZDg"/>
+                        <outlet property="nameLabel" destination="Ogx-1Q-see" id="Kxh-wt-HW4"/>
+                        <outlet property="salaryLabel" destination="hpL-3o-tud" id="sl4-jd-3ih"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXc-pK-Rnz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -603,7 +606,7 @@
         <!--Recover PasswordVC-->
         <scene sceneID="Ygr-LS-PuE">
             <objects>
-                <viewController id="CKy-S0-n7p" customClass="RecoverPasswordVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecoverPasswordId" id="CKy-S0-n7p" customClass="RecoverPasswordVC" customModule="GestionDeEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s7d-BI-u9a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -638,6 +641,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="SEND">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="sendButtonTaped:" destination="CKy-S0-n7p" eventType="touchUpInside" id="7Nn-nF-6WP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and recover your password." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-KC-TfH">
                                 <rect key="frame" x="38" y="490" width="338" height="21"/>
@@ -696,9 +702,6 @@
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
