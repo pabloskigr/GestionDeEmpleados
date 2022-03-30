@@ -18,7 +18,6 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var biographyTextView: UITextView!
     @IBOutlet weak var enterButton: UIButton!
     
-    let opciones: [Job] = [.user, .boss, .HR]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +45,12 @@ class RegisterVC: UIViewController {
             result in
         
             }
-            self.openRegistroVC()
+            self.openLoginVC()
         }
     }
    
-    private func openRegistroVC() {
-        if let navCon = storyboard?.instantiateViewController(identifier: "RegisterId") as? RegisterVC{
+    private func openLoginVC() {
+        if let navCon = storyboard?.instantiateViewController(identifier: "LoginId") as? LoginVC{
             
             navCon.modalPresentationStyle = .fullScreen
             navCon.modalTransitionStyle = .partialCurl

@@ -19,7 +19,7 @@ class MockData {
     
     
      func loadEmployee() -> [Employee] {
-        let filename = "employee.json"
+        let filename = "Employees.json"
         var data: Data
         
         
@@ -43,4 +43,5 @@ class MockData {
         }
         
     }
+   
 }

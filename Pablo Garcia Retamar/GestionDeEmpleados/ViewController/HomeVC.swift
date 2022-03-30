@@ -12,6 +12,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var response: Response?
+    var employee: Employee?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +22,20 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailID" {
+            let employee = sender as! Employee
+            let detailVC = segue.destination as! DetailVC
+            detailVC.employee = employee
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Esto es para llamar a la api
-        //return response?.request.count ?? 0
         return MockData.shared.employee.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellIdentifier", for: indexPath) as? EmployeeCell {
-            //Esto es para llamar a la api
-            //cell.empleado = response?.request[indexPath.row]
             cell.employee = MockData.shared.employee[indexPath.row]
             return cell
         }
@@ -39,23 +44,11 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Se pulso \(MockData.shared.employee[indexPath.row].name)")
-        tableView.deselectRow(at: indexPath, animated: true)
         
-        performSegue(withIdentifier: "DetalleEmpleado", sender: MockData.shared.employee[indexPath.row])
-        //performSegue(withIdentifier: "DetalleEmpleado", sender: response?.request[indexPath.row])
-        
+//        print("Se pulso \(MockData.shared.employee[indexPath.row].name)")
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        performSegue(withIdentifier: "detailID", sender: MockData.shared.employee[indexPath.row])
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetalleEmpleado" {
-            let employee = sender as! Employee
-            let detailVC = segue.destination as! DetailVC
-            
-            detailVC.employee = employee
-        }
-    }
-
 }

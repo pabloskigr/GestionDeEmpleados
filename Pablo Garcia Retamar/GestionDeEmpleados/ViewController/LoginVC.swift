@@ -55,11 +55,12 @@ class LoginVC: UIViewController {
     }
     
     private func openProfileVC() {
-        if let navCon = storyboard?.instantiateViewController(identifier: "ProfileID") as? ProfileVC{
+        if let navCo = storyboard?.instantiateViewController(identifier: "ProfileID") as? ProfileVC{
             
-            navCon.modalPresentationStyle = .fullScreen
-            navCon.modalTransitionStyle = .partialCurl
-            present(navCon, animated: true, completion: nil)
+            navCo.modalPresentationStyle = .fullScreen
+            navCo.modalTransitionStyle = .partialCurl
+            
+            present(navCo, animated: true, completion: nil)
         }
     }
 }

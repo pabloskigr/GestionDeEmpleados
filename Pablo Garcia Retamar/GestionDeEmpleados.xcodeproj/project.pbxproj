@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9254C7F27F44B79006036E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9254C7E27F44B79006036E2 /* AppDelegate.swift */; };
+		E9254C8727F451AD006036E2 /* Employees.json in Resources */ = {isa = PBXBuildFile; fileRef = E9254C8627F451AC006036E2 /* Employees.json */; };
 		E96C998E27D11CB9006B4A0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C998D27D11CB9006B4A0E /* SceneDelegate.swift */; };
-		E96C999027D11CB9006B4A0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C998F27D11CB9006B4A0E /* ViewController.swift */; };
 		E96C999327D11CB9006B4A0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96C999127D11CB9006B4A0E /* Main.storyboard */; };
 		E96C999527D11CBD006B4A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96C999427D11CBD006B4A0E /* Assets.xcassets */; };
 		E96C999827D11CBD006B4A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96C999627D11CBD006B4A0E /* LaunchScreen.storyboard */; };
@@ -26,9 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9254C7E27F44B79006036E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E9254C8627F451AC006036E2 /* Employees.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Employees.json; sourceTree = "<group>"; };
 		E96C998827D11CB9006B4A0E /* GestionDeEmpleados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestionDeEmpleados.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96C998D27D11CB9006B4A0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E96C998F27D11CB9006B4A0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E96C999227D11CB9006B4A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E96C999427D11CBD006B4A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96C999727D11CBD006B4A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,8 +82,8 @@
 				E96C99A327D11D7A006B4A0E /* Model */,
 				E96C99A227D11D65006B4A0E /* Network */,
 				E96C99A127D11D50006B4A0E /* ViewController */,
+				E9254C7E27F44B79006036E2 /* AppDelegate.swift */,
 				E96C998D27D11CB9006B4A0E /* SceneDelegate.swift */,
-				E96C998F27D11CB9006B4A0E /* ViewController.swift */,
 				E96C999127D11CB9006B4A0E /* Main.storyboard */,
 				E96C999427D11CBD006B4A0E /* Assets.xcassets */,
 				E96C999627D11CBD006B4A0E /* LaunchScreen.storyboard */,
@@ -116,6 +118,7 @@
 			children = (
 				E96C99B827D13C96006B4A0E /* NetworkManager.swift */,
 				E975C56327F3246D001D77F8 /* MockData.swift */,
+				E9254C8627F451AC006036E2 /* Employees.json */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E96C999827D11CBD006B4A0E /* LaunchScreen.storyboard in Resources */,
+				E9254C8727F451AD006036E2 /* Employees.json in Resources */,
 				E96C999527D11CBD006B4A0E /* Assets.xcassets in Resources */,
 				E96C999327D11CB9006B4A0E /* Main.storyboard in Resources */,
 			);
@@ -202,8 +206,8 @@
 			files = (
 				E96C99BF27D14907006B4A0E /* ProfileVC.swift in Sources */,
 				E96C99B127D11F73006B4A0E /* RecoverPasswordVC.swift in Sources */,
-				E96C999027D11CB9006B4A0E /* ViewController.swift in Sources */,
 				E96C99AB27D11EFA006B4A0E /* HomeVC.swift in Sources */,
+				E9254C7F27F44B79006036E2 /* AppDelegate.swift in Sources */,
 				E975C56427F3246D001D77F8 /* MockData.swift in Sources */,
 				E96C99B727D13C6E006B4A0E /* Employee.swift in Sources */,
 				E96C99B927D13C96006B4A0E /* NetworkManager.swift in Sources */,
